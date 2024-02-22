@@ -2,17 +2,17 @@ import { Component } from '@angular/core';
 import { AuthService } from 'src/app/shared/services/auth/auth.service';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  selector: 'app-register',
+  templateUrl: './register.component.html',
+  styleUrls: ['./register.component.scss']
 })
-export class LoginComponent {
+export class RegisterComponent {
   email: string = '';
   password: string = '';
 
   constructor(private authService: AuthService) { }
 
-  signIn() {
-    this.authService.signIn(this.email, this.password);
+  signUp() {
+    this.authService.signUp(this.email, this.password);
   }
 }
