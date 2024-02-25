@@ -1,0 +1,36 @@
+.toolbarContainer {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  align-items: center;
+  width: 82px;
+  padding-top: 40px;
+}
+.toolbarContainer > button.mat-mdc-icon-button {
+  margin-bottom: 8px;
+}
+.mat-mdc-icon-button {
+  display: flex;
+  line-height: 0;
+}
+
+// mat-icon-sprite {
+//   color: #195eff;
+// }
+.mdc-list-item__primary-text,
+mat-slide-toggle,
+.mdc-form-field,
+#mat-mdc-slide-toggle-1-label {
+  width: 100%;
+  height: 100%;
+}
+
+.toolbarContainer mat-icon {
+  fill: #1a5eff;
+}
+.theme-alternate .toolbarContainer mat-icon {
+  fill: #fff;
+}

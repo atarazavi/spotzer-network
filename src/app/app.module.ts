@@ -10,6 +10,8 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './features/login/login.component';
 import { TasksComponent } from './features/tasks/tasks.component';
 import { RegisterComponent } from './features/register/register.component';
+import { SidenavModule } from '#shared/components/sidenav/sidenav.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -21,9 +23,11 @@ import { RegisterComponent } from './features/register/register.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    BrowserAnimationsModule,
     FormsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
+    SidenavModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

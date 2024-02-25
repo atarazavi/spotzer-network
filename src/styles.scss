@@ -1,1 +1,85 @@
-/* You can add global styles to this file, and also import other style files */
+@import "normalize.css";
+a {
+  text-decoration: none;
+}
+.toolbarContainer .mat-mdc-icon-button svg-icon {
+  width: 37px;
+  height: 37px;
+}
+.toolbarContainer .mat-mdc-icon-button.notification {
+  width: 36px !important;
+  height: 36px !important;
+  align-items: center;
+  justify-content: center;
+  background-color: #ff124b;
+}
+.toolbarContainer .mat-mdc-icon-button.notification svg-icon {
+  width: 24px;
+  height: 24px;
+  fill: #fff !important;
+}
+
+.LabeldField {
+  margin: 0 21px 30px 0;
+  display: inline-block;
+}
+.LabeldField .Label_IDS {
+  margin-bottom: 10px;
+  color: #0d39b2;
+  font-family: "Roboto", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 10px;
+  line-height: 10px;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+mat-card .dropdownLabel {
+  margin-bottom: 10px;
+  color: #0d39b2;
+  font-family: "Roboto", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 10px;
+  line-height: 10px;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.expandedRow_content_title {
+  display: flex;
+  align-items: center;
+}
+
+.mat-mdc-card-content:last-child {
+  padding-bottom: 0 !important;
+}
+mat-card .mdc-card__actions {
+  position: absolute;
+  padding: 0;
+  top: 0;
+  right: 0;
+}
+
+.mat-mdc-standard-chip .mdc-evolution-chip__cell--primary {
+  width: unset !important;
+}
+.mdc-list-item__primary-text {
+  display: flex;
+}
+.mainMenuSidenavNormal .mdc-list-item__primary-text mat-icon {
+  margin-right: 15px;
+}
+.mainMenuSidenavNormal .mdc-list-item__primary-text .MenuItemText {
+  line-height: 25px;
+}
+app-sidenav-list-item {
+  display: flex;
+  margin-bottom: 15px;
+}
+.mdc-list-item__content {
+  color: black;
+}
+.mat-drawer-inner-container {
+  overflow: hidden !important;
+}

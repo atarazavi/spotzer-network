@@ -1,0 +1,11 @@
+<a
+  [routerLink]="'/' + navigationItemDetails.link"
+  routerLinkActive="active-link"
+>
+  <mat-list-item>
+    <mat-icon matListIcon>{{ navigationItemDetails.icon }}</mat-icon>
+    <div class="MenuItemText" *ngIf="collapsed" matLine>
+      {{ navigationItemDetails.displayName }}
+    </div>
+  </mat-list-item>
+</a>

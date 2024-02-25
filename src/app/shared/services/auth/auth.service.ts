@@ -29,6 +29,14 @@ export class AuthService {
       // Handle errors (e.g., weak password, email already in use)
     }
   }
+  async signOut() {
+    console.log('sign out');
+
+  }
+  async changePassword() {
+    console.log('change Password');
+
+  }
 
 
 }

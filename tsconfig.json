@@ -8,6 +8,7 @@
     "strict": true,
     "noImplicitOverride": true,
     "noPropertyAccessFromIndexSignature": true,
+    "strictPropertyInitialization": false,
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
     "sourceMap": true,
@@ -19,6 +20,14 @@
     "target": "ES2022",
     "module": "ES2022",
     "useDefineForClassFields": false,
+    "paths": {
+      "#shared/*": [
+        "src/app/shared/*"
+      ],
+      "#features/*": [
+        "src/app/features/*"
+      ]
+    },
     "lib": [
       "ES2022",
       "dom"

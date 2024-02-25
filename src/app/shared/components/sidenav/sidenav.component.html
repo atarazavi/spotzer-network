@@ -1,0 +1,64 @@
+<mat-sidenav-container autosize>
+  <mat-sidenav
+    [disableClose]="true"
+    [fixedInViewport]="true"
+    [@sidenavAnimation]="sidenavExtended ? 'extended' : 'collapsed'"
+    [ngClass]="
+      sidenavExtended ? 'mainMenuSidenavNormal' : 'mainMenuSidenavCollapsed'
+    "
+    mode="side"
+    opened="true"
+  >
+    <button
+      (mouseover)="toggleMenuIsHovered = true"
+      (mouseout)="toggleMenuIsHovered = false"
+      [ngClass]="
+        sidenavExtended ? 'toggleMenuButton' : 'toggleMenuButtonCollapsed'
+      "
+      (click)="onToggleSidenavClick()"
+    >
+      <mat-icon
+        [ngClass]="sidenavExtended ? 'toggleIcon' : 'toggleIconCollapsed'"
+        >chevron_left</mat-icon
+      >
+    </button>
+    <mat-nav-list>
+      <div id="logo-logotype-container">
+        <img
+          *ngIf="sidenavExtended"
+          class="logoImage"
+          src="assets/Spotzer-Digital-Logo.svg"
+          alt="Logo"
+        />
+        <img
+          *ngIf="!sidenavExtended"
+          class="logoImage"
+          src="assets/spotzer_digital_logo.jpg"
+          alt="Logo"
+        />
+      </div>
+      <div class="menuItemsContainer">
+        <app-sidenav-list-item
+          class="normal"
+          *ngFor="let eachNav of navigationItems"
+          [navigationItemDetails]="eachNav"
+          [collapsed]="sidenavExtended"
+        ></app-sidenav-list-item>
+      </div>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content
+    [@contentAnimation]="sidenavExtended ? 'extended' : 'collapsed'"
+  >
+    <main>
+      <div
+        [class.showHint]="toggleMenuIsHovered && sidenavExtended"
+        class="menu_toggle_hint"
+      >
+        Hide
+      </div>
+      <ng-content></ng-content>
+      <app-top-right-tools></app-top-right-tools>
+    </main>
+  </mat-sidenav-content>
+</mat-sidenav-container>

@@ -1,0 +1,31 @@
+<mat-card class="profile-card">
+  <mat-card-header>
+    <div mat-card-avatar class="example-header-image">
+      <mat-icon class="avatar">account_circle</mat-icon>
+    </div>
+    <mat-card-title>{{ userProfileName }}</mat-card-title>
+    <mat-card-subtitle class="usersEmailVerification"
+      >email verification:
+      {{
+        userProfileEmailVerified ? "Verified" : "Not verified"
+      }}</mat-card-subtitle
+    >
+  </mat-card-header>
+  <mat-card-actions>
+    <button
+      mat-flat-button
+      class="changePasswordButton"
+      (click)="changePassword()"
+    >
+      Change Password
+    </button>
+    <button
+      color="primary"
+      mat-flat-button
+      class="logoutButton"
+      (click)="logout()"
+    >
+      Logout
+    </button>
+  </mat-card-actions>
+</mat-card>
