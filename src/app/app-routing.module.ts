@@ -7,6 +7,10 @@ import { HistoryComponent } from '#features/history/history.component';
 import { InvoiceComponent } from '#features/invoice/invoice.component';
 
 const routes: Routes = [
+  {
+    path: 'tasks-list',
+    loadChildren: () => import('./features/tasks-list/tasks-list.module').then(m => m.TasksListModule),
+  },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'home', component: HomeComponent },

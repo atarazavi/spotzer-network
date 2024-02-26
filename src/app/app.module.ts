@@ -8,7 +8,6 @@ import { environment } from '../environments/environment';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './features/login/login.component';
-import { TasksComponent } from './features/tasks/tasks.component';
 import { RegisterComponent } from './features/register/register.component';
 import { SidenavModule } from '#shared/components/sidenav/sidenav.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -18,7 +17,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AppComponent,
     LoginComponent,
     RegisterComponent,
-    TasksComponent
   ],
   imports: [
     BrowserModule,

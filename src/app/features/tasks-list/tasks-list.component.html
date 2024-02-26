@@ -1,0 +1,8 @@
+<mat-list>
+  <mat-list-item *ngFor="let task of availableTasks">
+    {{ task.name }} - {{ task.amount }}
+    <button mat-raised-button color="primary" (click)="assignTask(task)">
+      Assign
+    </button>
+  </mat-list-item>
+</mat-list>
