@@ -18,10 +18,14 @@ const routes: Routes = [
     loadChildren: () => import('./features/history/history.module').then(m => m.HistoryModule),
     canActivate: [AuthGuard]
   },
+  {
+    path: 'account',
+    loadChildren: () => import('./features/account/account.module').then(m => m.AccountModule),
+    canActivate: [AuthGuard]
+  },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'home', component: HomeComponent },
-  { path: 'history', component: HistoryComponent },
   { path: 'invoice', component: InvoiceComponent },
   // Redirect empty path to '/login' or another component as the default route
   { path: '', redirectTo: '/login', pathMatch: 'full' },

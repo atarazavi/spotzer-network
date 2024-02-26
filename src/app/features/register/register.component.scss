@@ -1,0 +1,16 @@
+.register-form {
+  display: flex;
+  flex-direction: column;
+  width: 100%; /* Adjust width as needed */
+  max-width: 400px; /* Or your preferred max width */
+  margin: 0 auto;
+
+  .mat-form-field {
+    width: 100%; /* Full width */
+    margin-bottom: 16px; /* Spacing between fields */
+  }
+
+  button {
+    margin-top: 8px;
+  }
+}

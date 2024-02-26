@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { Router } from '@angular/router';
 import { Observable, map } from 'rxjs';
 
 @Injectable({
@@ -7,13 +8,17 @@ import { Observable, map } from 'rxjs';
 })
 export class AuthService {
 
-  constructor(private afAuth: AngularFireAuth) {
+  constructor(
+    public afAuth: AngularFireAuth,
+    private readonly router: Router,
+
+  ) {
   }
 
   async signIn(email: string, password: string) {
     try {
       await this.afAuth.signInWithEmailAndPassword(email, password);
-      console.log('Login successful');
+      this.router.navigate(['/tasks-list'])
     } catch (error) {
       console.error('Login failed', error);
     }
@@ -30,7 +35,7 @@ export class AuthService {
     try {
       await this.afAuth.signOut();
       console.log('Sign out successful');
-      // Redirect to login page or show a message
+      this.router.navigate(['/login'])
     } catch (error) {
       console.error('Sign out failed', error);
     }
