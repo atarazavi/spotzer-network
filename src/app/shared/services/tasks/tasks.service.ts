@@ -33,7 +33,7 @@ export class TasksService {
         name: 'Fix Navigation Bar Bug',
         description: 'Debug and fix the navigation bar not collapsing on mobile views.',
         status: 'assigned',
-        assignee: 'user123',
+        assignee: null,
         amount: 75
       },
       {
@@ -42,7 +42,8 @@ export class TasksService {
         description: 'Cover all methods in the UserService with unit tests.',
         status: 'completed',
         assignee: 'user456',
-        amount: 200
+        amount: 200,
+        completionDate: new Date("2023-08-15"),
       },
       {
         id: '5',
@@ -52,12 +53,58 @@ export class TasksService {
         assignee: null,
         amount: 50
       },
+      {
+        id: "6",
+        name: "Task 6",
+        description: "Description for task 6",
+        status: "completed",
+        amount: 123,
+        completionDate: new Date("2022-02-26")
+      },
+      {
+        id: "7",
+        name: "Task 7",
+        description: "Description for task 7",
+        status: "completed",
+        amount: 194,
+        completionDate: new Date("2020-05-18")
+      },
+      {
+        id: "8",
+        name: "Task 8",
+        description: "Description for task 8",
+        status: "completed",
+        amount: 168,
+        completionDate: new Date("2023-11-07")
+      },
+      {
+        id: "9",
+        name: "Task 9",
+        description: "Description for task 9",
+        status: "completed",
+        amount: 77,
+        completionDate: new Date("2023-07-21")
+      },
+      {
+        id: "10",
+        name: "Task 10",
+        description: "Description for task 10",
+        status: "completed",
+        amount: 81,
+        completionDate: new Date("2023-04-12")
+      }
     ]);
   }
 
   getAvailableTasks() {
     return this.tasks$.pipe(
       map(tasks => tasks.filter(task => task.status === 'available'))
+    );
+  }
+
+  getCompletedTasks() {
+    return this.tasks$.pipe(
+      map(tasks => tasks.filter(task => task.status === 'completed'))
     );
   }
 

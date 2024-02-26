@@ -3,6 +3,7 @@ export interface Task {
     name: string;
     description: string;
     status: 'available' | 'assigned' | 'completed';
-    assignee: string | null;
+    assignee?: string | null;
     amount: number;
+    completionDate?: Date;
 }
