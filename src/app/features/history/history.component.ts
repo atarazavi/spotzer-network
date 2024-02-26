@@ -1,12 +1,18 @@
-import { Component } from '@angular/core';
+import { Task } from '#shared/models/task.model';
+import { TasksService } from '#shared/services/tasks/tasks.service';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-history',
-  standalone: true,
-  imports: [],
   templateUrl: './history.component.html',
   styleUrls: ['./history.component.scss']
 })
-export class HistoryComponent {
+export class HistoryComponent implements OnInit {
+  assignedTasks: Task[];
 
+  constructor(private taskService: TasksService) { }
+
+  ngOnInit() {
+    this.assignedTasks = this.taskService.getAssignedTasks();
+  }
 }

@@ -12,6 +12,6 @@ import { TasksListRoutingModule } from './tasks-list-routing.module';
     SharedModule,
     TasksListRoutingModule,
   ],
-  exports: [TasksListComponent]
+  exports: [TasksListComponent],
 })
 export class TasksListModule { }

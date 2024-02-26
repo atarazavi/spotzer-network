@@ -1,1 +1,5 @@
-<p>history works!</p>
+<mat-selection-list #shoes>
+  <mat-list-option *ngFor="let task of assignedTasks">
+    {{ task.name }} - {{ task.amount }}
+  </mat-list-option>
+</mat-selection-list>

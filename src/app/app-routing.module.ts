@@ -11,6 +11,10 @@ const routes: Routes = [
     path: 'tasks-list',
     loadChildren: () => import('./features/tasks-list/tasks-list.module').then(m => m.TasksListModule),
   },
+  {
+    path: 'history',
+    loadChildren: () => import('./features/history/history.module').then(m => m.HistoryModule),
+  },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'home', component: HomeComponent },

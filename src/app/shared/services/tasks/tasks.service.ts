@@ -52,5 +52,7 @@ export class TasksService {
     return this.tasks.filter(task => task.status === 'available');
   }
 
-  // ... other methods to handle tasks
+  getAssignedTasks(): Task[] {
+    return this.tasks.filter(task => task.status === 'assigned' && task.assignee !== null);
+  }
 }
