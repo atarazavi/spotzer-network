@@ -135,4 +135,14 @@ export class TasksService {
 
     this.tasksSubject.next(updatedTasks);
   }
+  markTaskAsCompleted(task: Task, userId: string) {
+    const updatedTasks = this.tasksSubject.value.map(t => {
+      if (t.id === task.id) {
+        return { ...t, status: 'completed' as 'completed', assignee: userId, completionDate: new Date() };
+      }
+      return t;
+    });
+
+    this.tasksSubject.next(updatedTasks);
+  }
 }

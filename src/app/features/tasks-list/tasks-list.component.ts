@@ -46,6 +46,14 @@ export class TasksListComponent {
       }
     });
   }
+  completeTask(task: Task) {
+    this.authService.getUserId().subscribe(userId => {
+      if (userId && task.assignee === userId) {
+        this.tasksService.markTaskAsCompleted(task, userId);
+        this.updateTaskLists();
+      }
+    });
+  }
   private updateTaskLists() {
     this.availableTasks = this.tasksService.tasksSubject.value.filter(task => task.status === 'available');
     this.inProgressTasks = this.tasksService.tasksSubject.value.filter(task => task.assignee !== null && task.status !== 'completed');
