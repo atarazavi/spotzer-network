@@ -10,6 +10,7 @@ import { Component } from '@angular/core';
 })
 export class TasksListComponent {
   availableTasks: Task[] = [];
+  inProgressTasks: Task[] = [];
 
   constructor(
     private tasksService: TasksService,
@@ -18,9 +19,12 @@ export class TasksListComponent {
 
   ngOnInit() {
     this.tasksService.getAvailableTasks().subscribe(tasks => {
-      this.availableTasks = tasks;
+      this.availableTasks = tasks.filter(task => task.status === 'available');
     });
-    this.assignTask = this.assignTask.bind(this);
+
+    this.tasksService.getAssignedTasks().subscribe(tasks => {
+      this.inProgressTasks = tasks.filter(task => task.status === 'assigned');
+    });
 
   }
 
@@ -31,6 +35,20 @@ export class TasksListComponent {
         this.tasksService.assignTaskToUser(task, userId);
       }
     });
+    this.updateTaskLists();
+
+  }
+  unassignTask(task: Task) {
+    this.authService.getUserId().subscribe(userId => {
+      if (userId && task.assignee === userId) {
+        this.tasksService.unassignTaskFromUser(task);
+        this.updateTaskLists();
+      }
+    });
+  }
+  private updateTaskLists() {
+    this.availableTasks = this.tasksService.tasksSubject.value.filter(task => task.status === 'available');
+    this.inProgressTasks = this.tasksService.tasksSubject.value.filter(task => task.assignee !== null && task.status !== 'completed');
   }
 
 }

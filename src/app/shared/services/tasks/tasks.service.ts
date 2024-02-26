@@ -6,7 +6,7 @@ import { BehaviorSubject, map } from 'rxjs';
   providedIn: 'root'
 })
 export class TasksService {
-  private tasksSubject = new BehaviorSubject<Task[]>([]);
+  public tasksSubject = new BehaviorSubject<Task[]>([]);
   public tasks$ = this.tasksSubject.asObservable();
 
   constructor() {
@@ -78,5 +78,14 @@ export class TasksService {
 
     this.tasksSubject.next(updatedTasks);
   }
+  unassignTaskFromUser(task: Task) {
+    const updatedTasks = this.tasksSubject.value.map(t => {
+      if (t.id === task.id) {
+        return { ...t, status: 'available' as 'available', assignee: null };
+      }
+      return t;
+    });
 
+    this.tasksSubject.next(updatedTasks);
+  }
 }

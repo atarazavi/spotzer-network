@@ -1,8 +1,28 @@
-<mat-list>
-  <mat-list-item *ngFor="let task of availableTasks">
-    {{ task.name }} - {{ task.amount }}
-    <button mat-raised-button color="primary" (click)="assignTask(task)">
-      Assign
-    </button>
-  </mat-list-item>
-</mat-list>
+<!-- Tasks Container -->
+<div class="tasks-container">
+  <!-- Available Tasks Column -->
+  <div class="tasks-column">
+    <h3>Tasks Available</h3>
+    <mat-list>
+      <mat-list-item *ngFor="let task of availableTasks">
+        {{ task.name }} - {{ task.amount }}
+        <button mat-raised-button color="primary" (click)="assignTask(task)">
+          Assign
+        </button>
+      </mat-list-item>
+    </mat-list>
+  </div>
+
+  <!-- In Progress Tasks Column -->
+  <div class="tasks-column">
+    <h3>In Progress</h3>
+    <mat-list>
+      <mat-list-item *ngFor="let task of inProgressTasks">
+        {{ task.name }} - {{ task.amount }}
+        <button mat-raised-button color="warn" (click)="unassignTask(task)">
+          Unassign
+        </button>
+      </mat-list-item>
+    </mat-list>
+  </div>
+</div>

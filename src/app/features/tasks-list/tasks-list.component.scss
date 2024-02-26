@@ -1,0 +1,24 @@
+.tasks-container {
+  display: flex;
+  justify-content: space-around;
+  margin: 0 auto;
+  max-width: 1200px; /* Adjust as needed */
+}
+
+.tasks-column {
+  flex: 1; /* Each column takes up equal space */
+  margin: 0 10px; /* Space between columns */
+  background: #f7f7f7; /* Light grey background */
+  padding: 20px; /* Padding around the content */
+  border-radius: 8px; /* Rounded corners for the columns */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Simple shadow for depth */
+}
+
+mat-list-item {
+  margin-bottom: 10px; /* Space between list items */
+}
+
+/* Add styles for the buttons if needed */
+button {
+  margin-left: auto; /* Push buttons to the right */
+}
