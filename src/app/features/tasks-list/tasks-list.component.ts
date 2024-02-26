@@ -1,4 +1,5 @@
 import { Task } from '#shared/models/task.model';
+import { AuthService } from '#shared/services/auth/auth.service';
 import { TasksService } from '#shared/services/tasks/tasks.service';
 import { Component } from '@angular/core';
 
@@ -10,18 +11,26 @@ import { Component } from '@angular/core';
 export class TasksListComponent {
   availableTasks: Task[] = [];
 
-  constructor(private tasksService: TasksService) { }
+  constructor(
+    private tasksService: TasksService,
+    private authService: AuthService,
+  ) { }
 
   ngOnInit() {
     this.tasksService.getAvailableTasks().subscribe(tasks => {
       this.availableTasks = tasks;
     });
+    this.assignTask = this.assignTask.bind(this);
+
   }
 
   assignTask(task: Task) {
-    console.log(task);
-
-    this.tasksService.assignTaskToUser(task, 'currentUserId');
+    this.authService.getUserId().subscribe(userId => {
+      if (userId) {
+        // call the service method to assign the task to the user
+        this.tasksService.assignTaskToUser(task, userId);
+      }
+    });
   }
 
 }

@@ -5,15 +5,18 @@ import { RegisterComponent } from './features/register/register.component';
 import { HomeComponent } from '#features/home/home.component';
 import { HistoryComponent } from '#features/history/history.component';
 import { InvoiceComponent } from '#features/invoice/invoice.component';
+import { AuthGuard } from './auth.guard';
 
 const routes: Routes = [
   {
     path: 'tasks-list',
     loadChildren: () => import('./features/tasks-list/tasks-list.module').then(m => m.TasksListModule),
+    canActivate: [AuthGuard]
   },
   {
     path: 'history',
     loadChildren: () => import('./features/history/history.module').then(m => m.HistoryModule),
+    canActivate: [AuthGuard]
   },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },

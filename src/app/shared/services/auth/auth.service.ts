@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { Observable, map } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -26,13 +27,22 @@ export class AuthService {
     }
   }
   async signOut() {
-    console.log('sign out');
-
+    try {
+      await this.afAuth.signOut();
+      console.log('Sign out successful');
+      // Redirect to login page or show a message
+    } catch (error) {
+      console.error('Sign out failed', error);
+    }
   }
   async changePassword() {
     console.log('change Password');
 
   }
-
+  getUserId(): Observable<string | null> {
+    return this.afAuth.authState.pipe(
+      map(user => user ? user.uid : null)
+    );
+  }
 
 }
