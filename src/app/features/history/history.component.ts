@@ -8,11 +8,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./history.component.scss']
 })
 export class HistoryComponent implements OnInit {
-  assignedTasks: Task[];
+  assignedTasks: Task[] = [];
 
-  constructor(private taskService: TasksService) { }
+  constructor(private tasksService: TasksService) { }
 
   ngOnInit() {
-    this.assignedTasks = this.taskService.getAssignedTasks();
+    this.tasksService.getAssignedTasks().subscribe(tasks => {
+      this.assignedTasks = tasks;
+    });
   }
 }

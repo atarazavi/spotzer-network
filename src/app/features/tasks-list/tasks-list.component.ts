@@ -8,23 +8,20 @@ import { Component } from '@angular/core';
   styleUrls: ['./tasks-list.component.scss']
 })
 export class TasksListComponent {
-  availableTasks: Task[];
+  availableTasks: Task[] = [];
 
   constructor(private tasksService: TasksService) { }
 
   ngOnInit() {
-    this.availableTasks = this.tasksService.getAvailableTasks();
+    this.tasksService.getAvailableTasks().subscribe(tasks => {
+      this.availableTasks = tasks;
+    });
   }
 
   assignTask(task: Task) {
     console.log(task);
 
-    const index = this.availableTasks.indexOf(task);
-    this.availableTasks[index] = {
-      ...task,
-      status: 'assigned',
-      assignee: 'currentUserId' // replace with actual user ID
-    };
+    this.tasksService.assignTaskToUser(task, 'currentUserId');
   }
 
 }
