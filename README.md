@@ -42,6 +42,13 @@ The application is structured into 'Features' and 'Shared' folders, promoting a 
 2. Navigate to the project directory and run `npm install` to install dependencies.
 3. Configure Firebase authentication with your project credentials.
 
+## Demo Credentials
+
+To explore the Spotzer Network portal with a demo account, use the following credentials:
+
+**Username:** demo@spotzer.digital
+**Password:** 123456
+
 ### Running the Application:
 
 1. Run `ng serve` to start the development server.
