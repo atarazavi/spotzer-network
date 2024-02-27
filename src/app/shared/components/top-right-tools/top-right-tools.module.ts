@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 
 import { TopRightToolsComponent } from './top-right-tools.component';
 import { AppRoutingModule } from 'src/app/app-routing.module';
-import { ProfileCardModule } from '../profile-card/profile-card.module';
 import { SharedModule } from '#shared/shared.module';
 import { MatIconModule } from '@angular/material/icon';
 
@@ -14,7 +13,6 @@ import { MatIconModule } from '@angular/material/icon';
     SharedModule,
     MatIconModule,
     AppRoutingModule,
-    ProfileCardModule,
   ],
   exports: [TopRightToolsComponent]
 })

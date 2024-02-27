@@ -10,7 +10,7 @@ export class TasksService {
   public tasks$ = this.tasksSubject.asObservable();
 
   constructor() {
-    // Initialize with some dummy data if necessary
+    // Initialize with some dummy data
     this.tasksSubject.next([
       {
         id: '1',

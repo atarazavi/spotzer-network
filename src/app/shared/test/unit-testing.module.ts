@@ -1,4 +1,4 @@
-import { NgModule, Injectable } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { CommonModule, APP_BASE_HREF } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
@@ -6,8 +6,6 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { HttpClientModule } from '@angular/common/http';
 
 import { MaterialDesignModule } from '#shared/materialdesign/materialdesign.module';
-import { HubConnectionFactoryService } from '#shared/services/backend/hub-connection-factory.service';
-import { FakeHubConnection } from '#shared/services/backend/fake-hub-connection';
 
 
 const MODULE_IMPORTS = [
@@ -22,17 +20,8 @@ const MODULE_IMPORTS = [
 const MODULE_EXPORTS = [
     MaterialDesignModule,
 ];
-
-@Injectable()
-export class FakeHubConnectionFactoryService {
-    newHubConnection(url: string): FakeHubConnection {
-        return new FakeHubConnection();
-    }
-}
-
 const MODULE_PROVIDERS = [
     { provide: APP_BASE_HREF, useValue: '/' },
-    { provide: HubConnectionFactoryService, useClass: FakeHubConnectionFactoryService },
 ];
 
 @NgModule({

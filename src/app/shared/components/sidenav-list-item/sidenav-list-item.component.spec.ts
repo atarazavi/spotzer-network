@@ -20,7 +20,7 @@ describe('SidenavListItemComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(SidenavListItemComponent);
     component = fixture.componentInstance;
-    component.navigationItemDetails = { displayName: 'xyz', icon: 'xyz', link: 'xyz', allowedPermissions: [''] };
+    component.navigationItemDetails = { displayName: 'xyz', icon: 'xyz', link: 'xyz' };
     component.collapsed = false;
     fixture.detectChanges();
   });
