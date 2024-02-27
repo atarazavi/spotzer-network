@@ -1,27 +1,74 @@
-# SpotzerNetwork
+# Spotzer-Network Application Documentation
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.5.
+## Project Overview
 
-## Development server
+### Application Name:
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Spotzer-Network
 
-## Code scaffolding
+### Description:
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Spotzer-Network is a simple portal designed to enable freelance users to log in and manage tasks within their own task lists. Each task is characterized by a task name, description, status, and an amount indicating the price for completing it. Freelancers can view available tasks from the Spotzer systems, assign tasks to themselves, mark them as complete, view their history, and track earnings from completed tasks.
 
-## Build
+### Intended Audience:
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+The application is hypothetically aimed at freelancers as part of an interview assignment.
 
-## Running unit tests
+## Technologies Used
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Spotzer-Network is built using:
 
-## Running end-to-end tests
+- Angular version 16.2.0
+- TypeScript version 5.1.3
+- SCSS for styling
+- Firebase for authentication
+- RxJS for state management with BehaviorSubjects
+- Jasmine and Karma for unit testing
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## Design Choices
 
-## Further help
+The application is structured into 'Features' and 'Shared' folders, promoting a modular architecture with lazy loading. Each component has its own module and routing module. RxJS and Observables are used for state management, emphasizing the avoidance of overengineering by not incorporating NGRX, which is deemed unnecessary for the project's complexity.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## Setup and Running Instructions
+
+### Prerequisites:
+
+- Node.js (compatible version based on Angular 16.2.0 requirements)
+- Angular CLI version 17.2.0
+
+### Setup:
+
+1. Clone the repository from the provided source.
+2. Navigate to the project directory and run `npm install` to install dependencies.
+3. Configure Firebase authentication with your project credentials.
+
+### Running the Application:
+
+1. Run `ng serve` to start the development server.
+2. Open a web browser and navigate to `http://localhost:4200/`.
+
+## Automated Tests
+
+Testing is facilitated by Jasmine and Karma frameworks.
+
+### Running Tests:
+
+Execute `ng test` in the terminal to run the automated unit tests.
+
+## Maintainability and Extensibility
+
+The codebase adheres to the Angular Style Guide, TypeScript Style Guide, and integrates TSLint, ESLint, and Prettier for code quality. Inline comments are present throughout the code and tests, with the notion that unit tests serve as the best form of documentation.
+
+### Extensibility:
+
+Future extensions can leverage the modular and service-oriented architecture, along with the existing patterns of Observables and Dependency Injection.
+
+## Challenges and Limitations
+
+The application features Firebase authentication to showcase expertise, despite the static nature of the assignment's requirements. No external APIs or asynchronous backend calls are made, as the data is intended to be hardcoded.
+
+## Notes:
+
+- The use of BehaviorSubjects from RxJS instead of NGRX was a conscious choice to prevent overengineering.
+- The application's codebase is organized following best practices, with a strong emphasis on unit testing as both a development and documentation tool.
+  """
